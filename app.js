@@ -60,3 +60,22 @@ botonInicioPausa.addEventListener('click', function(){
         estadoCronometro = 'pausado';
     }
 });
+
+botonReiniciar.addEventListener('click', function(){
+    // Reiniciar el cronometro eliminando el intervalo de tiempo,
+    // reiniciando los segundos, minutos y horas, y actualizando
+    // el estado del cronometro y de los botones.
+    window.clearInterval(intervaloDeTiempo);
+     // Segundos, minutos y horas.
+    segundos = 0;
+    minutos = 0;
+    horas = 0;
+    document.getElementById('cronometro').innerHTML = '00:00:00';
+      // Botones.
+    document.getElementById('boton-inicio-pausa').innerHTML = `<i class="bi bi-play-fill" id="inicio"></i>`;
+    botonInicioPausa.classList.remove('pausar');
+    botonInicioPausa.classList.add('iniciar');
+
+    // Estado.
+    estadoCronometro = 'pausado';
+})
